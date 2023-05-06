@@ -19,6 +19,8 @@ const handleOnchange = (event) => {
         ...form,
         [event.target.name]: event.target.value
     })
+
+    setErrors(validate())
 }
 
 const handleSubmit = (event) => {
@@ -27,15 +29,24 @@ const handleSubmit = (event) => {
 }
 
 const validate =() => {
-    if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
+    const error = {};
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(form.email)) {
+        error.email = "no es un email valido"
+    }
+    if (form.password.length > 6) {
+        error.password= "debe tener minimo 6 caracteres"
+    }
+    return error
 }
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email:</label>
             <input type="text" name="email" value={form.email} onChange={handleOnchange} />
+            {errors.email && <span style={(color = "red")}>{errors.email}</span>}
             <hr/>
             <label htmlFor="password">Password:</label>
             <input type="text" name="password" value={form.password} onChange={handleOnchange}/>
+            {errors.password && <span style={(color="red")}>{errors.password}</span>}
             <hr/>
             <button type="submit">LOGIN</button>
         </form>
