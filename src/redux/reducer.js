@@ -1,4 +1,4 @@
-import { GET_CHARACTERS } from "./actions-types";
+import { GET_CHARACTERS, GET_CHARACTER_DETAIL, CLEAN_DETAIL } from "./actions-types";
 
 const initialState = {
     characters: [],
@@ -13,6 +13,18 @@ const reducer = (state=initialState, action) => {
                 characters: action.payload
 
             }
+
+        case GET_CHARACTER_DETAIL:
+            return {
+                ...state,
+                characterDetail: action.payload
+            }
+        
+        case CLEAN_DETAIL:
+            return {
+                ...state,
+                characterDetail:{}
+            }    
 
         default:
             return {...state}

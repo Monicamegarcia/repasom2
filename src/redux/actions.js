@@ -1,4 +1,4 @@
-import { GET_CHARACTERS, GET_CHARACTER_DETAIL } from "./actions-types";
+import { GET_CHARACTERS, GET_CHARACTER_DETAIL, CLEAN_DETAIL } from "./actions-types";
 import axios from "axios";
 
 //con fetch
@@ -38,6 +38,10 @@ export const getCharacterDetail = (id) => {
         .then(response => response.data)
         .then (data=>dispatch({type:GET_CHARACTER_DETAIL, payload:data}))
     }
+}
+
+export const cleanDetail = () => {
+    return {type:CLEAN_DETAIL}
 }
 
 //busco la info especifica de un caracter con id

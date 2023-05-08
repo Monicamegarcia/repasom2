@@ -54,3 +54,24 @@ const validate =() => {
 }
 
 export default Form;
+
+/*import React from "react";
+
+class Form extends React.Component {
+    constructor (props) {
+        super (props)
+        this.state={
+            email: "",
+            password: ""
+        }
+    }
+    render () {
+        return (
+            <form> 
+            
+            </form>
+        )
+     }
+    }
+
+    //ejn comp de clase solo se puede tener un estado
