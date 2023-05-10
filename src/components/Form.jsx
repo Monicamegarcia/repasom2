@@ -74,4 +74,4 @@ class Form extends React.Component {
      }
     }
 
-    //ejn comp de clase solo se puede tener un estado
+    //ejn comp de clase solo se puede tener un estado*/

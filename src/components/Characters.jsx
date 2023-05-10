@@ -83,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect {
+export default connect (
     mapStateToProps,
     mapDispatchToProps
-} (Characters);
+) (Characters);
